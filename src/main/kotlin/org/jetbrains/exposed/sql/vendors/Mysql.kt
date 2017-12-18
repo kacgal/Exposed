@@ -38,7 +38,7 @@ internal object MysqlFunctionProvider : FunctionProvider() {
     }
 }
 
-internal class MysqlDialect : VendorDialect(dialectName, MysqlDataTypeProvider, MysqlFunctionProvider) {
+internal open class MysqlDialect(dialectName: String = MysqlDialect.dialectName) : VendorDialect(dialectName, MysqlDataTypeProvider, MysqlFunctionProvider) {
 
     override fun isAllowedAsColumnDefault(e: Expression<*>): Boolean {
         val expression = e.toSQL(QueryBuilder(false)).trim()

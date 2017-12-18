@@ -66,6 +66,7 @@ class Database private constructor(val connector: () -> Connection) {
         init {
             registerDialect(H2Dialect.dialectName) { H2Dialect() }
             registerDialect(MysqlDialect.dialectName) { MysqlDialect() }
+            registerDialect(MariadbDialect.dialectName) { MariadbDialect() }
             registerDialect(PostgreSQLDialect.dialectName) { PostgreSQLDialect() }
             registerDialect(SQLiteDialect.dialectName) { SQLiteDialect() }
             registerDialect(OracleDialect.dialectName) { OracleDialect() }
